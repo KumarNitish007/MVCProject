@@ -1,0 +1,87 @@
+﻿@model LoginViewModel
+
+<style>
+	.additional-links {
+		margin-top: 10px;  
+	}
+
+		.additional-links a {
+			margin-right: 10px;  
+		}
+
+	.login-form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+
+
+		.login-form form {
+			width: 300px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+		}
+
+		.login-form label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.login-form input[type="text"],
+		.login-form input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 15px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		.login-form button[type="submit"] {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #007bff;
+			color: #fff;
+			cursor: pointer;
+		}
+
+			.login-form button[type="submit"]:hover {
+				background-color: #0056b3;
+			}
+
+		.login-form .forgot-password {
+			display: block;
+			text-align: center;
+			margin-top: 10px;
+			color: #007bff;
+			text-decoration: none;
+		}
+
+			.login-form .forgot-password:hover {
+				text-decoration: underline;
+			}
+</style>
+
+<div class="login-form">
+	<form asp-action="Login" method="post">
+		<h2>Login</h2>
+		<div>
+			<label asp-for="UserName">User Name:</label>
+			<input asp-for="UserName" />
+		</div>
+		<div>
+			<label asp-for="Password">Password:</label>
+			<input asp-for="Password" type="password" />
+		</div>
+		<button type="submit">Login</button>
+		<a asp-action="ResetPassword" asp-controller="Profile" class="forgot-password">Forgot Password?</a>
+		<a asp-action="Register" asp-controller="Profile" class="register-link">Register</a>
+	</form>
+
+</div>
+
+
