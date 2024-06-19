@@ -61,19 +61,6 @@ app.UseEndpoints(endpoints =>{
 		pattern: "{controller=Profile}/{action=Index}/{id?}");
 });
 
-//app.UseEndpoints(endpoints =>
-//{
-//	endpoints.MapControllerRoute(
-//		name: "default",
-//		pattern: "{controller=Home}/{action=Index}/{id?}");
-//});
-
-//app.Use(async (context, next) =>
-//{
-//	context.Response.Redirect("/Profile/Login");
-//	await next();
-//});
-
 
 // Seed database
 using (var scope = app.Services.CreateScope())

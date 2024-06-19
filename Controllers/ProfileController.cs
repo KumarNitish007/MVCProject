@@ -35,12 +35,11 @@ namespace MVCProject.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
 		{
-			string URL = "/Profile/Index";
 			if (string.IsNullOrEmpty(returnUrl))
 			{
 				returnUrl = Url.Action("Index","Profile");
 			}
-			ViewData["ReturnUrl"] = URL;
+			ViewData["ReturnUrl"] = returnUrl;
 			if (ModelState.IsValid)
 			{
 				var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, lockoutOnFailure: false);
@@ -235,6 +234,5 @@ namespace MVCProject.Controllers
 		{
 			return View();
 		}
-
 	}
 }
